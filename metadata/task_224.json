@@ -1,0 +1,226 @@
+{
+  "task_id": "task_224",
+  "topo_id": "small_5",
+  "difficulty": "L2",
+  "num_devices": 9,
+  "num_requirements": 1,
+  "requirement_types": [
+    "med_manipulation"
+  ],
+  "properties": [
+    {
+      "id": "prop_5",
+      "type": "med_manipulation",
+      "scope": {
+        "from_as": "1",
+        "to_as": "2",
+        "at": "AS2_R2"
+      },
+      "predicate": {
+        "prefix": {
+          "type": "external_role",
+          "as_num": "1",
+          "role": "SERV"
+        },
+        "preferred_ingress": "AS2_R1",
+        "other_ingress": "AS2_R3",
+        "src_border_preferred": "AS1_R2",
+        "src_border_other": "AS1_R3"
+      },
+      "expect": true,
+      "priority": 1,
+      "meta": {
+        "template": "T2_6_med_manipulation"
+      }
+    }
+  ],
+  "topo_ctx": {
+    "topo_id": "small_5",
+    "seed": 46,
+    "as_list": [
+      1,
+      2,
+      3
+    ],
+    "as_borders": {
+      "1": [
+        "AS1_R2",
+        "AS1_R3"
+      ],
+      "2": [
+        "AS2_R1",
+        "AS2_R3"
+      ],
+      "3": [
+        "AS3_R3",
+        "AS3_R1"
+      ]
+    },
+    "as_edges": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "nodes": [
+      "AS1_R1",
+      "AS1_R2",
+      "AS1_R3",
+      "AS2_R1",
+      "AS2_R2",
+      "AS2_R3",
+      "AS3_R1",
+      "AS3_R2",
+      "AS3_R3"
+    ],
+    "node_to_as": {
+      "AS1_R1": 1,
+      "AS1_R2": 1,
+      "AS1_R3": 1,
+      "AS2_R1": 2,
+      "AS2_R2": 2,
+      "AS2_R3": 2,
+      "AS3_R1": 3,
+      "AS3_R2": 3,
+      "AS3_R3": 3
+    },
+    "node_loopback": {
+      "AS1_R1": "1.1.1.1/32",
+      "AS1_R2": "1.1.2.2/32",
+      "AS1_R3": "1.1.3.3/32",
+      "AS2_R1": "2.2.1.1/32",
+      "AS2_R2": "2.2.2.2/32",
+      "AS2_R3": "2.2.3.3/32",
+      "AS3_R1": "3.3.1.1/32",
+      "AS3_R2": "3.3.2.2/32",
+      "AS3_R3": "3.3.3.3/32"
+    },
+    "ip_to_node": {
+      "192.168.1.1": "AS1_R1",
+      "192.168.1.2": "AS1_R2",
+      "192.168.1.5": "AS1_R1",
+      "192.168.1.6": "AS1_R3",
+      "192.168.2.1": "AS2_R1",
+      "192.168.2.2": "AS2_R2",
+      "192.168.2.5": "AS2_R2",
+      "192.168.2.6": "AS2_R3",
+      "192.168.3.1": "AS3_R1",
+      "192.168.3.2": "AS3_R2",
+      "192.168.3.5": "AS3_R2",
+      "192.168.3.6": "AS3_R3",
+      "172.16.12.1": "AS1_R2",
+      "172.16.12.2": "AS2_R1",
+      "172.16.12.5": "AS1_R3",
+      "172.16.12.6": "AS2_R3",
+      "172.16.23.1": "AS2_R1",
+      "172.16.23.2": "AS3_R3"
+    },
+    "external_prefixes": {
+      "1": {
+        "CUST": "10.1.1.0/24",
+        "SERV": "10.1.2.0/24",
+        "BLK": "10.1.3.0/24"
+      },
+      "2": {
+        "CUST": "10.2.1.0/24",
+        "SERV": "10.2.2.0/24",
+        "BLK": "10.2.3.0/24"
+      },
+      "3": {
+        "CUST": "10.3.1.0/24",
+        "SERV": "10.3.2.0/24",
+        "BLK": "10.3.3.0/24"
+      }
+    },
+    "prefix_origin": {
+      "1": {
+        "CUST": "AS1_R2",
+        "SERV": "AS1_R2",
+        "BLK": "AS1_R2"
+      },
+      "2": {
+        "CUST": "AS2_R1",
+        "SERV": "AS2_R1",
+        "BLK": "AS2_R1"
+      },
+      "3": {
+        "CUST": "AS3_R3",
+        "SERV": "AS3_R3",
+        "BLK": "AS3_R3"
+      }
+    },
+    "as_core_nodes": {
+      "1": [
+        "AS1_R1"
+      ],
+      "2": [
+        "AS2_R2"
+      ],
+      "3": [
+        "AS3_R2"
+      ]
+    },
+    "as_igp_edges": {
+      "1": [
+        [
+          "AS1_R1",
+          "AS1_R2"
+        ],
+        [
+          "AS1_R1",
+          "AS1_R3"
+        ]
+      ],
+      "2": [
+        [
+          "AS2_R1",
+          "AS2_R2"
+        ],
+        [
+          "AS2_R2",
+          "AS2_R3"
+        ]
+      ],
+      "3": [
+        [
+          "AS3_R1",
+          "AS3_R2"
+        ],
+        [
+          "AS3_R2",
+          "AS3_R3"
+        ]
+      ]
+    },
+    "as_edge_assignments": {
+      "1,2": [
+        "AS1_R2",
+        "AS2_R1"
+      ],
+      "2,1": [
+        "AS2_R1",
+        "AS1_R2"
+      ],
+      "1,2_2": [
+        "AS1_R3",
+        "AS2_R3"
+      ],
+      "2,1_2": [
+        "AS2_R3",
+        "AS1_R3"
+      ],
+      "2,3": [
+        "AS2_R1",
+        "AS3_R3"
+      ],
+      "3,2": [
+        "AS3_R3",
+        "AS2_R1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+# Task: task_412
+
+## Topology
+4 ASes (AS1, AS2, AS3, AS4), 24 devices
+
+Loopback Addresses:
+  AS1_R1: 1.1.1.1/32
+  AS1_R2: 1.1.2.2/32
+  AS1_R3: 1.1.3.3/32
+  AS1_R4: 1.1.4.4/32
+  AS1_R5: 1.1.5.5/32
+  AS1_R6: 1.1.6.6/32
+  AS1_R7: 1.1.7.7/32
+  AS2_R1: 2.2.1.1/32
+  AS2_R2: 2.2.2.2/32
+  AS2_R3: 2.2.3.3/32
+  AS2_R4: 2.2.4.4/32
+  AS2_R5: 2.2.5.5/32
+  AS3_R1: 3.3.1.1/32
+  AS3_R2: 3.3.2.2/32
+  AS3_R3: 3.3.3.3/32
+  AS3_R4: 3.3.4.4/32
+  AS3_R5: 3.3.5.5/32
+  AS4_R1: 4.4.1.1/32
+  AS4_R2: 4.4.2.2/32
+  AS4_R3: 4.4.3.3/32
+  AS4_R4: 4.4.4.4/32
+  AS4_R5: 4.4.5.5/32
+  AS4_R6: 4.4.6.6/32
+  AS4_R7: 4.4.7.7/32
+
+Route Reflectors (iBGP):
+  AS1: RR = AS1_R2, AS1_R3, Clients = AS1_R1, AS1_R4, AS1_R5, AS1_R6, AS1_R7
+  AS2: RR = AS2_R1, Clients = AS2_R2, AS2_R3, AS2_R4, AS2_R5
+  AS3: RR = AS3_R3, Clients = AS3_R1, AS3_R2, AS3_R4, AS3_R5
+  AS4: RR = AS4_R1, AS4_R2, Clients = AS4_R3, AS4_R4, AS4_R5, AS4_R6, AS4_R7
+
+IGP (Intra-AS) Links:
+  AS1: AS1_R1(192.168.1.1/30) <-> AS1_R3(192.168.1.2/30)
+  AS1: AS1_R1(192.168.1.5/30) <-> AS1_R2(192.168.1.6/30)
+  AS1: AS1_R2(192.168.1.9/30) <-> AS1_R6(192.168.1.10/30)
+  AS1: AS1_R2(192.168.1.13/30) <-> AS1_R3(192.168.1.14/30)
+  AS1: AS1_R3(192.168.1.17/30) <-> AS1_R6(192.168.1.18/30)
+  AS1: AS1_R4(192.168.1.21/30) <-> AS1_R5(192.168.1.22/30)
+  AS1: AS1_R5(192.168.1.25/30) <-> AS1_R7(192.168.1.26/30)
+  AS1: AS1_R6(192.168.1.29/30) <-> AS1_R7(192.168.1.30/30)
+  AS2: AS2_R1(192.168.2.1/30) <-> AS2_R3(192.168.2.2/30)
+  AS2: AS2_R1(192.168.2.5/30) <-> AS2_R4(192.168.2.6/30)
+  AS2: AS2_R2(192.168.2.9/30) <-> AS2_R4(192.168.2.10/30)
+  AS2: AS2_R2(192.168.2.13/30) <-> AS2_R5(192.168.2.14/30)
+  AS3: AS3_R1(192.168.3.1/30) <-> AS3_R4(192.168.3.2/30)
+  AS3: AS3_R2(192.168.3.5/30) <-> AS3_R5(192.168.3.6/30)
+  AS3: AS3_R3(192.168.3.9/30) <-> AS3_R4(192.168.3.10/30)
+  AS3: AS3_R3(192.168.3.13/30) <-> AS3_R5(192.168.3.14/30)
+  AS4: AS4_R1(192.168.4.1/30) <-> AS4_R7(192.168.4.2/30)
+  AS4: AS4_R1(192.168.4.5/30) <-> AS4_R5(192.168.4.6/30)
+  AS4: AS4_R1(192.168.4.9/30) <-> AS4_R4(192.168.4.10/30)
+  AS4: AS4_R2(192.168.4.13/30) <-> AS4_R3(192.168.4.14/30)
+  AS4: AS4_R2(192.168.4.17/30) <-> AS4_R4(192.168.4.18/30)
+  AS4: AS4_R2(192.168.4.21/30) <-> AS4_R7(192.168.4.22/30)
+  AS4: AS4_R3(192.168.4.25/30) <-> AS4_R6(192.168.4.26/30)
+  AS4: AS4_R4(192.168.4.29/30) <-> AS4_R7(192.168.4.30/30)
+
+eBGP (Inter-AS) Links:
+  AS1 <-> AS2: AS1_R5(172.16.12.1/30) <-> AS2_R2(172.16.12.2/30)
+  AS1 <-> AS2: AS1_R1(172.16.12.5/30) <-> AS2_R3(172.16.12.6/30)
+  AS1 <-> AS3: AS1_R5(172.16.13.1/30) <-> AS3_R1(172.16.13.2/30)
+  AS2 <-> AS3: AS2_R4(172.16.23.1/30) <-> AS3_R4(172.16.23.2/30)
+  AS2 <-> AS3: AS2_R2(172.16.23.5/30) <-> AS3_R1(172.16.23.6/30)
+  AS2 <-> AS3: AS2_R3(172.16.23.9/30) <-> AS3_R5(172.16.23.10/30)
+  AS3 <-> AS4: AS3_R5(172.16.34.1/30) <-> AS4_R3(172.16.34.2/30)
+  AS3 <-> AS4: AS3_R4(172.16.34.5/30) <-> AS4_R4(172.16.34.6/30)
+  AS3 <-> AS4: AS3_R1(172.16.34.9/30) <-> AS4_R6(172.16.34.10/30)
+
+Prefix Origins:
+  AS1_R4 originates: 10.1.1.0/24(CUST), 10.1.2.0/24(SERV), 10.1.3.0/24(BLK)
+  AS2_R3 originates: 10.2.1.0/24(CUST), 10.2.2.0/24(SERV), 10.2.3.0/24(BLK)
+  AS3_R4 originates: 10.3.1.0/24(CUST), 10.3.2.0/24(SERV), 10.3.3.0/24(BLK)
+  AS4_R4 originates: 10.4.1.0/24(CUST), 10.4.2.0/24(SERV), 10.4.3.0/24(BLK)
+
+## Requirements
+0. [Connectivity] Ensure full network connectivity: all eBGP sessions must be established, and any router's Loopback0 address must be reachable from any other AS.
+1. Prevent AS2 from transiting traffic from AS3 to AS1 for prefixes 10.1.1.0/24, 10.1.2.0/24.
+2. Use MED to control how AS3 receives 10.2.2.0/24 from AS2: AS3 should prefer ingress via AS3_R4 (from AS2_R4) over AS3_R1 (from AS2_R2). Set lower MED on the AS2_R4→AS3_R4 link.
+3. Ensure AS2_R5 prefers egress via AS2_R3 over AS2_R2 for prefix 10.1.2.0/24.
