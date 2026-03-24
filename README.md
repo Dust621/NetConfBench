@@ -1,4 +1,4 @@
-# PES-ConfGen Benchmark
+# PES-NetConfBench
 
 A benchmark for evaluating LLMs on **BGP network configuration generation**. Given a network topology and a set of policy requirements in natural language, the model must produce complete, valid Cisco IOS configurations for every device.
 
