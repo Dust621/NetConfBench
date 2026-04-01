@@ -61,4 +61,4 @@ Prefix Origins:
 
 ## Requirements
 0. [Connectivity] Ensure full network connectivity: all eBGP sessions must be established, and any router's Loopback0 address must be reachable from any other AS.
-1. Use MED to control how AS2 receives 10.1.2.0/24 from AS1: AS2 should prefer ingress via AS2_R2 (from AS1_R1) over AS2_R3 (from AS1_R4). Set lower MED on the AS1_R1→AS2_R2 link.
+1. Use MED to control how AS2 receives 10.1.2.0/24 from AS1: AS2 should prefer ingress via AS2_R2 over AS2_R3. Set appropriate MED values on AS1's export to AS2.

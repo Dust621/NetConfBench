@@ -5,8 +5,8 @@
   "num_devices": 17,
   "num_requirements": 3,
   "requirement_types": [
-    "med_manipulation",
     "no_transit",
+    "med_manipulation",
     "path_preference"
   ],
   "properties": [

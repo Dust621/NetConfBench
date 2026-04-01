@@ -5,9 +5,9 @@
   "num_devices": 27,
   "num_requirements": 3,
   "requirement_types": [
-    "export_constraint",
+    "route_aggregation",
     "community_tagging",
-    "route_aggregation"
+    "export_constraint"
   ],
   "properties": [
     {

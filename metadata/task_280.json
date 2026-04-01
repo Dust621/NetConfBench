@@ -5,9 +5,9 @@
   "num_devices": 33,
   "num_requirements": 3,
   "requirement_types": [
-    "med_manipulation",
     "local_preference",
-    "as_path_prepend"
+    "as_path_prepend",
+    "med_manipulation"
   ],
   "properties": [
     {

@@ -5,8 +5,8 @@
   "num_devices": 12,
   "num_requirements": 2,
   "requirement_types": [
-    "export_constraint",
-    "path_preference"
+    "path_preference",
+    "export_constraint"
   ],
   "properties": [
     {

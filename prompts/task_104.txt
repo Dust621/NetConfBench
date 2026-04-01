@@ -115,4 +115,4 @@ Prefix Origins:
 0. [Connectivity] Ensure full network connectivity: all eBGP sessions must be established, and any router's Loopback0 address must be reachable from any other AS.
 1. Use BGP local preference to ensure AS4_R5 prefers the path to 10.1.2.0/24 via AS1 (egress AS4_R2) over AS5 (egress AS4_R6).
 2. Ensure AS5 prepends its ASN 3 time(s) when advertising 10.5.2.0/24 to AS4. AS4 also peers with AS1, so prepending makes AS4 prefer the alternative shorter path.
-3. Use MED to control how AS3 receives 10.5.2.0/24 from AS5: AS3 should prefer ingress via AS3_R7 (from AS5_R2) over AS3_R3 (from AS5_R4). Set lower MED on the AS5_R2→AS3_R7 link.
+3. Use MED to control how AS3 receives 10.5.2.0/24 from AS5: AS3 should prefer ingress via AS3_R7 over AS3_R3. Set appropriate MED values on AS5's export to AS3.
