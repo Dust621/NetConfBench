@@ -44,7 +44,7 @@
         "prefix": {
           "type": "external_role",
           "as_num": 3,
-          "role": "SERV"
+          "role": "CUST"
         },
         "prefer_egress": "AS4_R3",
         "over_egress": "AS4_R4"

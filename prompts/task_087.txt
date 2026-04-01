@@ -82,4 +82,4 @@ Prefix Origins:
 0. [Connectivity] Ensure full network connectivity: all eBGP sessions must be established, and any router's Loopback0 address must be reachable from any other AS.
 1. Prevent AS2 from transiting traffic from AS5 to AS4 for prefixes 10.4.1.0/24, 10.4.2.0/24.
 2. Use MED to control how AS3 receives 10.5.2.0/24 from AS5: AS3 should prefer ingress via AS3_R3 over AS3_R5. Set appropriate MED values on AS5's export to AS3.
-3. Ensure AS3_R2 prefers egress via AS3_R3 over AS3_R5 for prefix 10.5.2.0/24.
+3. Ensure AS3_R2 prefers egress via AS3_R3 over AS3_R5 for prefix 10.5.1.0/24.

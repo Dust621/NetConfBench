@@ -66,7 +66,7 @@
         "prefix": {
           "type": "external_role",
           "as_num": 1,
-          "role": "SERV"
+          "role": "CUST"
         },
         "preferred_ingress": "AS2_R2",
         "other_ingress": "AS2_R3",
